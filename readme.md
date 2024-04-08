@@ -1,4 +1,4 @@
-# Teste de Pair Programming para Candidatos Junior em Front-end React
+# Projeto Prático para Candidatos a Vagas de Front-end Júnior
 
 ## Bem-vindo(a)!
 
