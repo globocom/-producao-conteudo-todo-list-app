@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2024, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import Button from "./ui/Button";

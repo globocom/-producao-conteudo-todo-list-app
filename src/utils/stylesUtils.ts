@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2024, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+
 import { Dimensions, StyleProp, ViewStyle } from "react-native";
 
 const LARGE_DEVICE_WIDTH = 768;

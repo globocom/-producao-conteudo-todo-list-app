@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2024, Globo.com (https://github.com/globocom)
+ *
+ * License: MIT
+ */
+
 import { act, renderHook } from "@testing-library/react-hooks";
 import { useTask } from "../src/hooks/useTask";
 
