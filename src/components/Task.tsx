@@ -7,14 +7,14 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import { ITask } from "../@types";
 import Button from "./ui/Button";
 import Checkbox from "./ui/Checkbox";
+import { ITask } from "../models/ITask";
 
 type TaskProps = {
   task: ITask;
-  toggleTask: (id: number) => void;
-  deleteTask: (id: number) => void;
+  toggleTask: (id: string) => void;
+  deleteTask: (id: string) => void;
 };
 
 function Task({ task, toggleTask, deleteTask }: TaskProps) {

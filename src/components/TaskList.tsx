@@ -5,26 +5,34 @@
  */
 
 import React from "react";
-import { FlatList, ListRenderItemInfo, StyleSheet, View } from "react-native";
+import { FlatList, ListRenderItemInfo, StyleSheet, Text, View } from "react-native";
 
-import { ITask } from "../@types";
 import Task from "./Task";
 import Divider from "./ui/Divider";
+import { ITask } from "../models/ITask";
 
 type TaskListProps = {
   tasks: ITask[];
-  toggleTask: (id: number) => void;
-  deleteTask: (id: number) => void;
+  toggleTask: (id: string) => void;
+  deleteTask: (id: string) => void;
 };
 
 function TaskList({ tasks, toggleTask, deleteTask }: TaskListProps) {
   const renderItem = ({ item }: ListRenderItemInfo<ITask>) => (
     <Task task={item} toggleTask={toggleTask} deleteTask={deleteTask} />
   );
+ 
+  if (!tasks?.length) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.emptyListText}>Nenhuma tarefa cadastrada.</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
-      {!!tasks?.length && <Divider />}
+      <Divider />
       <FlatList
         data={tasks}
         renderItem={renderItem}
@@ -37,7 +45,14 @@ function TaskList({ tasks, toggleTask, deleteTask }: TaskListProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 20,
+    marginHorizontal: 20, 
+  },
+  emptyListText: {
+    textAlign: "center",
+    marginTop: 16,
+    fontSize: 16,
+    color: "#555",
+    marginBottom: 20,
   },
 });
 

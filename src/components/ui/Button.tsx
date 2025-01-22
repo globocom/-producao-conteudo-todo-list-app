@@ -5,7 +5,7 @@
  */
 
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, Pressable } from "react-native";
 
 type ButtonProps = {
   title: string;
@@ -20,13 +20,13 @@ const Button = ({
   type = "primary",
   disabled = false,
 }: ButtonProps) => (
-  <TouchableOpacity
+  <Pressable
     disabled={disabled}
     onPress={onPress}
     style={[styles.button, styles[type], disabled && styles.disabled]}
   >
     <Text style={styles.text}>{title}</Text>
-  </TouchableOpacity>
+  </Pressable>
 );
 
 const styles = StyleSheet.create({

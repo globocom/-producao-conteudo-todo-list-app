@@ -5,7 +5,7 @@
  */
 
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, Pressable, View } from "react-native";
 
 type CheckboxProps = {
   isChecked: boolean;
@@ -14,12 +14,12 @@ type CheckboxProps = {
 };
 
 const Checkbox = ({ isChecked, onToggle, label }: CheckboxProps) => (
-  <TouchableOpacity onPress={onToggle} style={styles.container}>
+  <Pressable onPress={onToggle} style={styles.container}>
     <View style={[styles.checkbox, isChecked && styles.checked]}>
       {isChecked && <Text style={styles.checkmark}>✓</Text>}
     </View>
     {label && <Text style={styles.label}>{label}</Text>}
-  </TouchableOpacity>
+  </Pressable>
 );
 
 const styles = StyleSheet.create({

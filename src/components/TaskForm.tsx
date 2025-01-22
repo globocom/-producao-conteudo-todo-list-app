@@ -15,8 +15,9 @@ type TaskFormProps = {
 function TaskForm({ addTask }: TaskFormProps) {
   const [input, setInput] = useState("");
 
-  const handleSubmit = () => {
-    addTask(input);
+  const handleSubmit = () => { 
+    if (!input.trim()) return;
+    addTask(input.trim());
     setInput("");
   };
 
