@@ -5,12 +5,12 @@
  */
 
 import { StyleSheet, View } from "react-native";
-import Main from "./src/Main";
+import MainScreen from "./src/screens/MainScreen"; 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Main />
+    <View style={styles.container}> 
+        <MainScreen /> 
     </View>
   );
 }
@@ -21,3 +21,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f0f0",
   },
 });
+ 

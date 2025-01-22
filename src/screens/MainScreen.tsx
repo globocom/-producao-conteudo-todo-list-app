@@ -5,13 +5,13 @@
  */
 
 import { StyleSheet, View } from "react-native";
-import TaskForm from "./components/TaskForm";
-import TaskList from "./components/TaskList";
-import { useTask } from "./hooks/useTask";
-import { getContainerStyles } from "./utils/stylesUtils";
+import TaskForm from "../components/TaskForm";
+import TaskList from "../components/TaskList";
+import { useTasksContext } from "../contexts/TaskContext";
+import { getContainerStyles } from "../utils";
 
 export default function Main() {
-  const { tasks, addTask, toggleTask, deleteTask } = useTask();
+  const { tasks, addTask, toggleTask, deleteTask } = useTasksContext();
 
   return (
     <View style={[styles.container, getContainerStyles()]}>

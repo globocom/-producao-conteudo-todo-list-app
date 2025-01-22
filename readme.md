@@ -4,61 +4,119 @@
 
 Este repositório contém um projeto de Lista de Tarefas (Todo List) projetado para ser utilizado em entrevistas técnicas para candidatos a posições junior de desenvolvimento front-end com foco em React. O objetivo deste teste é avaliar as habilidades práticas do candidato em resolver problemas de codificação em um ambiente colaborativo de pair programming.
 
+---
 
 ## Objetivos do Teste
 
-Durante a entrevista de 50 minutos, você será solicitado a trabalhar em várias tarefas relacionadas ao código fornecido. A interação é fundamental, e o entrevistador estará presente para guiá-lo através do processo, oferecendo ajuda conforme necessário.
-
-
-## Requisitos
-
-Para executar e trabalhar neste projeto, você precisará ter as seguintes ferramentas e tecnologias instaladas em sua máquina:
-
-- **Node.js 18+**: O ambiente de execução JavaScript necessário para executar o projeto. Pode ser baixado e instalado a partir de [https://nodejs.org/](https://nodejs.org/).
-- **Visual Studio Code (VS Code)**: Recomendamos o uso do VS Code como editor de código para este projeto, devido à sua ampla aceitação e integração com tecnologias de desenvolvimento web. Disponível em [https://code.visualstudio.com/](https://code.visualstudio.com/).
-- **Gerenciador de Pacotes**: Yarn, PNPM, ou NPM. Embora o NPM venha instalado com o Node.js, você pode preferir usar Yarn ou PNPM. Escolha o que mais lhe convier para instalar as dependências do projeto.
-
-
-## Tarefas
-
-Aqui estão as tarefas que você será solicitado a realizar.  
-
-1. **Domínio de GIT**: Clone o projeto e instale as dependências necessárias.
-2. **Instalação da Dependência**: Resolva quaisquer problemas encontrados ao instalar as dependências.
-3. **Estado Local**: Crie um estado local usando `useState` para armazenar os dados das tarefas.
-4. **Adicionar Tarefa**: Implemente a funcionalidade para adicionar uma nova tarefa à lista.
-5. **Validação de Tarefa Vazia**: Garanta que não seja possível adicionar uma tarefa vazia à lista.
-6. **Validação de Espaços**: Evite a adição de tarefas que contenham apenas espaços.
-7. **Alternar Estado de Conclusão**: Permita que o usuário marque uma tarefa como concluída ou pendente.
-8. **Deletar Tarefa**: Implemente a funcionalidade para permitir que o usuário delete uma tarefa da lista.
-9. **Desabilitar Botão**: O botão "Adicionar" deve ser desabilitado caso não haja valor no campo de input.
-
-## Setup do Projeto
-
-Antes da entrevista, é recomendável que você configure o ambiente de desenvolvimento em sua máquina. Siga estes passos:
-
+Durante a entrevista (cerca de 50 minutos), você será solicitado(a) a trabalhar em diversas tarefas relacionadas ao código fornecido. A interação é fundamental, e o entrevistador estará presente para guiá-lo(a) pelo processo, oferecendo ajuda conforme necessário.
 
 ---
 
-```bash
+## Requisitos
+
+- **Node.js 18+**  
+  Necessário para executar o projeto. Disponível em [https://nodejs.org/](https://nodejs.org/).
+- **Visual Studio Code (VS Code)**  
+  Recomendado como editor de código. Disponível em [https://code.visualstudio.com/](https://code.visualstudio.com/).
+- **Gerenciador de Pacotes**  
+  Pode ser Yarn, PNPM ou NPM. Escolha o que preferir para instalar as dependências do projeto.
+
+---
+
+## Setup do Projeto
+
+Antes da entrevista, configure o ambiente de desenvolvimento em sua máquina:
+
+```
 git clone git@github.com:globocom/todo-list-app.git
 cd todo-list-app
 yarn install
 ```
 
+Para executar o projeto em modo web (via Expo for Web):
 
-### Ferramentas e Tecnologias Utilizadas
-- React
-- Expo
-- React Native Web
-- Git
+---
 
+## Tarefas Principais
 
-### Dicas
-- Leia atentamente cada tarefa.
-- Faça perguntas sempre que algo não estiver claro.
-- Use a documentação oficial das tecnologias envolvidas como referência.
-- Lembre-se de que o objetivo é avaliar sua capacidade de resolver problemas e sua interação com o entrevistador, não apenas sua capacidade de escrever código.
+1. **Domínio de GIT**  
+   - Clonar o repositório e instalar as dependências necessárias.
 
+2. **Estado Local (useState)**  
+   - Criar um estado local para armazenar a lista de tarefas.
+
+3. **Adicionar Tarefa**  
+   - Implementar funcionalidade para adicionar uma nova tarefa.
+
+4. **Validação de Tarefa**  
+   - Não permitir adicionar uma tarefa vazia ou contendo apenas espaços.
+
+5. **Alternar Estado de Conclusão**  
+   - Marcar uma tarefa como concluída ou pendente.
+
+6. **Deletar Tarefa**  
+   - Permitir que o usuário delete uma tarefa da lista.
+
+7. **Desabilitar Botão**  
+   - Desabilitar o botão "Adicionar" quando não houver valor no campo de input.
+
+---
+
+## Persistência de Tarefas (Local Storage)
+
+Esta aplicação carrega e salva a lista de tarefas no **Local Storage** do navegador, garantindo que as tarefas persistam mesmo após recarregar a página.
+
+- **Carregar**  
+  - Quando a aplicação inicia, o hook de tarefas (useTask) lê as tarefas salvas no Local Storage.
+- **Salvar**  
+  - Sempre que o estado de tarefas (tasks) é atualizado, o hook salva a nova lista no Local Storage.
+
+---
+
+## Uso de Context
+
+Para compartilhar a lista de tarefas e funções de manipulação (adicionar, alternar, deletar) entre diferentes componentes, foi criado um **Context** (`TaskProvider`). Dessa forma:
+
+- **TaskProvider** envolve a aplicação, provendo `tasks`, `addTask`, `toggleTask` e `deleteTask`.
+- **useTasksContext** acessa o contexto, retornando o estado atual e as funções de CRUD.
+
+---
+
+## Testes Automatizados
+
+Este projeto conta com testes que validam as principais funcionalidades:
+
+- `addTask`
+- `toggleTask`
+- `deleteTask`
+- `Local Storage` (carregar e salvar)
+- `Context` (distribuição de estado)
+
+Para executar os testes:
+
+```
+yarn test
+```
+
+Leia atentamente as mensagens de erro, pois elas podem indicar problemas de configuração de ambiente (por exemplo, ausência de mocks para `localStorage`).
+
+---
+
+## Ferramentas e Tecnologias
+
+- **React**  
+- **Expo**  
+- **React Native Web**  
+- **Git**  
+- **TypeScript** (opcional/fortemente recomendado)
+
+---
+
+## Dicas
+
+- **Leia atentamente cada tarefa e cada mensagem de erro**.  
+- **Faça perguntas** sempre que algo não estiver claro.  
+- Use a **documentação oficial** das tecnologias envolvidas como referência.  
+- O objetivo é avaliar **sua capacidade de resolver problemas**, **suas habilidades de comunicação** e **colaboração** (pair programming).
 
 Boa sorte! Estamos ansiosos para ver suas habilidades em ação.
