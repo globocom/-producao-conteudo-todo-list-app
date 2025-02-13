@@ -35,6 +35,21 @@ yarn install
 
 Para executar o projeto em modo web (via Expo for Web):
 
+```
+yarn start
+```
+
+---
+
+## Recomendação de Abordagem
+
+Para facilitar a resolução das tarefas e compreender melhor a estrutura do código, a recomendação é:
+
+1. **Comece pelo arquivo `useTask`**  
+   - Este arquivo gerencia a lógica central das tarefas e a persistência no Local Storage.
+2. **Depois, analise o `TaskProvider`**  
+   - Ele é responsável por distribuir as tarefas e funções de manipulação entre os componentes da aplicação.
+
 ---
 
 ## Tarefas Principais
@@ -42,7 +57,7 @@ Para executar o projeto em modo web (via Expo for Web):
 1. **Domínio de GIT**  
    - Clonar o repositório e instalar as dependências necessárias.
 
-2. **Estado Local (useState)**  
+2. **Estado Local (`useState`)**  
    - Criar um estado local para armazenar a lista de tarefas.
 
 3. **Adicionar Tarefa**  
@@ -67,9 +82,9 @@ Para executar o projeto em modo web (via Expo for Web):
 Esta aplicação carrega e salva a lista de tarefas no **Local Storage** do navegador, garantindo que as tarefas persistam mesmo após recarregar a página.
 
 - **Carregar**  
-  - Quando a aplicação inicia, o hook de tarefas (useTask) lê as tarefas salvas no Local Storage.
+  - Quando a aplicação inicia, o hook de tarefas (`useTask`) lê as tarefas salvas no Local Storage.
 - **Salvar**  
-  - Sempre que o estado de tarefas (tasks) é atualizado, o hook salva a nova lista no Local Storage.
+  - Sempre que o estado de tarefas (`tasks`) é atualizado, o hook salva a nova lista no Local Storage.
 
 ---
 
@@ -98,7 +113,15 @@ Para executar os testes:
 yarn test
 ```
 
-Leia atentamente as mensagens de erro, pois elas podem indicar problemas de configuração de ambiente (por exemplo, ausência de mocks para `localStorage`).
+### Dica para Testes
+
+- Rode os testes apenas no arquivo que está mexendo para facilitar a depuração e otimizar o tempo. Use:
+
+  ```
+  yarn test nome-do-arquivo.test.tsx
+  ```
+
+- Leia atentamente as mensagens de erro, pois elas podem indicar problemas de configuração de ambiente (por exemplo, ausência de mocks para `localStorage`).
 
 ---
 
@@ -120,3 +143,4 @@ Leia atentamente as mensagens de erro, pois elas podem indicar problemas de conf
 - O objetivo é avaliar **sua capacidade de resolver problemas**, **suas habilidades de comunicação** e **colaboração** (pair programming).
 
 Boa sorte! Estamos ansiosos para ver suas habilidades em ação.
+
